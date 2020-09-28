@@ -1,0 +1,168 @@
+— Animation Studios Film
+
+select distinct ?id ?Keterangan ?Artis ?Nama
+{
+  ?id dct:subject dbc:Walt_Disney_Animation_Studios_films.
+  ?id dbo:wikiPageExternalLink ?Keterangan.
+  ?id dbo:starring ?Artis.
+  ?Artis foaf:name ?Nama.
+}
+ORDER BY ASC (?id)
+
+— Disney Channel Original Movies 
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+Select distinct ?id ?name ?ket ?Artis ?Nama
+{
+   ?id dct:subject dbc:Disney_Channel_Original_Movie_films.
+  ?id foaf:name ?name.
+  ?id foaf:homepage ?ket.
+  ?id dbo:starring ?Artis.
+  ?Artis foaf:name ?Nama.
+}
+ORDER BY ASC (?id)
+
+
+
+—  Disney Comic Character
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?id ?Nama ?Gender 
+{ 
+  ?id dct:subject dbc:Characters_in_Disney_package_films.
+  ?id foaf:name ?Nama.
+  ?id foaf:gender ?Gender.
+}
+ORDER BY ASC (?id)
+
+
+
+— Record Singles
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+SELECT distinct ?id ?Artis ?Nama ?Cover
+{
+  ?id dct:subject dbc:Walt_Disney_Records_singles.
+  ?id foaf:name ?Nama.
+  ?id dbo:musicalArtist ?Artis.
+  ?id dbp:cover ?Cover.
+}
+
+— Disney Record Artist
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT distinct ?id ?nama ?comment ?homepage ?asal ?genre
+{
+  ?id dct:subject dbc:Walt_Disney_Records_artists.
+  ?id foaf:name ?nama.
+  ?id rdfs:comment ?comment
+?id foaf:homepage ?homepage.
+?id dbo:hometown ?asal.
+?id dbo:genre ?genre.
+}
+
+— Artis
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT distinct ?id ?TTL ?Tempat ?Keterangan ?pict
+{
+  ?id dct:subject dbc:Child_pop_musicians.
+  ?id dbo:birthDate ?TL.
+  ?id dbo:birthPlace ?Tempat.
+  ?id foaf:homepage ?Keterangan.
+  ?id foaf:depiction ?pict.
+}
+ORDER BY ASC (?id)
+
+— TV Shows
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+SELECT distinct ?id ?Judul ?Genre ?Episode ?Season ?Tanggal ?Negara ?bahasa ?Bintang
+{ 
+  ?id dbo:network dbr:Disney_Channel.
+  OPTIONAL {
+  ?id dbp:title ?Judul.
+  ?id dbo:genre ?Genre.
+   ?id dbo:numberOfEpisodes ?Episode.
+    ?id dbo:numberOfSeasons ?Season.
+    ?id dbo:releaseDate ?Tanggal.
+    ?id dbp:country ?Negara.
+    ?id dbp:language ?bahasa.
+    ?id dbo:starring ?Bintang.
+  }
+}
+ORDER BY ASC (?id)
+
+
+— Star Wars Film
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT distinct ?id ?Judul
+{
+  ?id dct:subject dbc:Star_Wars_films.
+  ?id foaf:name ?Judul.
+}
+
+
+— Star Wars NOVEL
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?id ?Judul ?Penerbit ?Genre ?TanggalTerbit ?Cover
+{ 
+  ?id dct:subject dbc:Books_based_on_Star_Wars.
+  ?id foaf:name ?Judul.
+  ?id dc:publisher ?Penerbit.
+  ?id dbo:literaryGenre ?Genre.
+  OPTIONAL {
+    ?id dbp:releaseDate ?TanggalTerbit.
+    ?id dbp:cover ?Cover.
+  }
+}
+
+
+—Franchises
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?id
+{
+  ?id dct:subject dbc:Disney_franchises.
+}
+
+
+
+— RESORT 
+SELECT * where
+{
+  ?id dct:subject dbc:Walt_Disney_Parks_and_Resorts.
+  ?id dbp:location ?Lokasi.
+  OPTIONAL{
+  ?id geo:lat ?lat.
+  ?id geo:long ?long.
+  }
+}
+
+
+— Parks and Resort 
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT distinct ?id
+{
+  ?id dct:subject dbc:Walt_Disney_Parks_and_Resorts.
+}

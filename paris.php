@@ -1,0 +1,2 @@
+
+<iframe style="width: 100%; height: 100%; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20*%20WHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31*%2Fwdt%3AP279*%20wd%3AQ206521%3B%0A%20%20%20%20%20%20%20%20wdt%3AP625%20%3Fgeo%20.%0A%7D%0A" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
